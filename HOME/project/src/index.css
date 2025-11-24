@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    animation: gradient 8s ease infinite;
+    background-size: 300% 300%;
+  }
+
+  @keyframes gradient {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+
+  .bg-300\% {
+    background-size: 300%;
+  }
+
+  .delay-1000 {
+    animation-delay: 1s;
+  }
+
+  .layout-grid section > div > div:last-child {
+    @apply grid-cols-3 gap-4;
+  }
+
+  .layout-stack section > div > div:last-child {
+    @apply flex flex-col space-y-4;
+  }
+
+  .layout-spotlight section > div > div:last-child > div:hover {
+    @apply scale-110 z-50;
+  }
+
+  .layout-neon section {
+    @apply relative;
+  }
+
+  .layout-neon section::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-b from-cyan-500/10 via-purple-500/10 to-pink-500/10 pointer-events-none;
+  }
+}
